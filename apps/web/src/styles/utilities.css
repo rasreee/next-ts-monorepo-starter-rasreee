@@ -1,0 +1,34 @@
+@layer utilities {
+  .layout {
+    max-width: 68.75rem;
+    @apply mx-auto w-11/12;
+  }
+
+  .min-h-main {
+    @apply min-h-[calc(100vh-var(--header-height))];
+  }
+
+  .h-header-footer {
+    @apply h-[var(--header-height)];
+  }
+
+  .bg-root {
+    @apply bg-white dark:bg-base-1100;
+  }
+
+  .bg-surface {
+    @apply bg-white dark:bg-base-900;
+  }
+
+  .bg-surface-1 {
+    @apply bg-base-100 bg-opacity-60 dark:bg-base-800 dark:bg-opacity-100;
+  }
+
+  .bg-surface-2 {
+    @apply bg-base-200 bg-opacity-60 dark:bg-base-700 dark:bg-opacity-100;
+  }
+
+  .bg-surface-3 {
+    @apply bg-base-300 bg-opacity-60 dark:bg-base-600 dark:bg-opacity-40;
+  }
+}

@@ -1,0 +1,3 @@
+# [ijan.dev](https://ijan.dev)
+
+Website for curating "Awesome" Solana development resources, in particular open-source Github repos, real-world examples of coding on Solana, tutorials, and more.

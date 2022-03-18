@@ -1,0 +1,5 @@
+@layer components {
+  .input {
+    @apply bg-surface rounded-md text-base leading-none text-base-600 placeholder:text-base placeholder:leading-none dark:bg-base-1100 dark:bg-opacity-70 dark:text-base-100 dark:placeholder:text-gray-400;
+  }
+}

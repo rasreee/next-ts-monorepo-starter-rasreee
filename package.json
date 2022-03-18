@@ -1,0 +1,61 @@
+{
+  "name": "ijancleaning",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "yarn workspace @ijancleaning/web run dev",
+    "dev": "yarn dev:web",
+    "start:web": "yarn workspace @ijancleaning/web run start",
+    "start": "yarn start:web",
+    "build:pkgs:ui": "yarn workspace @ijancleaning/ui run build",
+    "build:pkgs:utils": "yarn workspace @ijancleaning/utils run build",
+    "build:pkgs:tw": "yarn workspace @ijancleaning/tw run build",
+    "build:pkgs:hooks": "yarn workspace @ijancleaning/hooks run build",
+    "build:pkgs": "yarn build:pkgs:utils && yarn build:pkgs:tw && yarn build:pkgs:hooks && yarn build:pkgs:ui",
+    "build:apps:web": "yarn workspace @ijancleaning/web run build",
+    "build:apps": "yarn build:apps:web",
+    "build": "yarn build:pkgs && yarn build:apps",
+    "nuke:builds": "find . -name \"dist\" -type d -prune -exec rm -rf '{}' +",
+    "nuke:node": "rm -rf yarn.lock && find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
+    "nuke": "yarn nuke:builds && yarn nuke:node",
+    "refresh": "yarn nuke && yarn install && yarn build",
+    "lint:strict": "yarn workspaces foreach run lint:strict",
+    "typecheck": "yarn workspaces foreach run typecheck",
+    "format": "yarn workspaces foreach run format",
+    "format:check": "yarn workspaces foreach run format:check",
+    "test": "yarn workspaces foreach run test",
+    "prepare": "husky install",
+    "postinstall": "yarn husky install"
+  },
+  "lint-staged": {
+    "{web,packages/*}": [
+      "yarn lint:strict --fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@supabase/supabase-js": "^1.30.7",
+    "@types/lodash.times": "^4.3.6",
+    "@types/node": "^17.0.21",
+    "@types/node-fetch": "^2.6.1",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "lodash.times": "^4.3.2",
+    "node-fetch": "2",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.6.2"
+  },
+  "packageManager": "yarn@3.2.0"
+}
